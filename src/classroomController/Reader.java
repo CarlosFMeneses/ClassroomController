@@ -8,7 +8,7 @@ import java.util.Scanner;
 /**
  * @author carlosfmeneses
  * ClassController.java 
- * created 3/11/2019 | updated 3/19/2019
+ * created 3/11/2019 | updated 3/21/2019
  */
 
 class Reader {
@@ -40,13 +40,12 @@ class Reader {
 		}
 		myInt = myScanner.nextInt();
 		return myInt;
-}
+	}
 
-	/**
-	 * @param myString the myString to set
-	 */
-	// public void setMyString(String myString) {
-	//	this.myString = myString;
-	//}
+	static public void clrScreen() {
+		for (int clr = 0; clr < 1000; clr++) {
+			System.out.println("\b");
+		}
+	}
 
 }

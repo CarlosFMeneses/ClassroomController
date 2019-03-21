@@ -6,7 +6,7 @@ package classroomController;
 /**
  * @author carlosfmeneses
  * ClassController.java 
- * created 3/8/2019 | updated 3/12/2019
+ * created 3/8/2019 | updated 3/21/2019
  */
 
 class ClassController {
@@ -23,6 +23,7 @@ class ClassController {
 
 	public static void main(String[] args) {
 		menu();
+		Reader.clrScreen();
 		}
 
 	private static void menu() {
