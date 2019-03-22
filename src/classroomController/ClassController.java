@@ -16,6 +16,9 @@ class ClassController {
 	static int lightsMax = 3;
 	static int lightsQuantity = 0;
 	
+	static String userSelection;
+	static int userInterger;
+	
 	/**
 	 * @param args
 	 */
@@ -23,7 +26,11 @@ class ClassController {
 
 	public static void main(String[] args) {
 		menu();
+		userSelection = commandSelection();
+		userInterger = commandInteger();
 		Reader.clrScreen();
+		System.out.println("Your command: " + userSelection);
+		System.out.println("Your quantity: " + userInterger);
 		}
 
 	private static void menu() {
@@ -39,20 +46,18 @@ class ClassController {
 				+ "(L) Lights on \n" 
 				+ "(O) Lights off \n"
 				+ "\n");
-		commandSelection();
 	}
 
-	private static void commandSelection() {
+	private static String commandSelection() {
 		System.out.print("Enter command: ");
 		String userCommand = Reader.getMyString();
-		System.out.println("Your command: " + userCommand + "\n");
-		commandInteger();
+		return userCommand;
 	}
 
-	private static void commandInteger() {
+	private static int commandInteger() {
 		System.out.print("Enter quantity: ");
 		int userQuantity = Reader.getMyInt();
-		System.out.println("Your quantity: " + userQuantity);
+		return userQuantity;
 	}
 
 }
