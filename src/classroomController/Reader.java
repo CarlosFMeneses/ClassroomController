@@ -8,7 +8,7 @@ import java.util.Scanner;
 /**
  * @author carlosfmeneses
  * ClassController.java 
- * created 3/11/2019 | updated 3/21/2019
+ * created 3/11/2019 | updated 3/22/2019
  */
 
 class Reader {
@@ -38,7 +38,7 @@ class Reader {
 			System.out.print("Invalid quantity. Please enter a number: ");
 			myString = myScanner.nextLine();
 		}
-		myInt = myScanner.nextInt();
+		myInt = Integer.parseInt(myScanner.nextLine());
 		return myInt;
 	}
 
