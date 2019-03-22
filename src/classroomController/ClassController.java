@@ -6,7 +6,7 @@ package classroomController;
 /**
  * @author carlosfmeneses
  * ClassController.java 
- * created 3/8/2019 | updated 3/21/2019
+ * created 3/8/2019 | updated 3/22/2019
  */
 
 class ClassController {
@@ -25,14 +25,15 @@ class ClassController {
 	static Classroom currentClassroom = new Classroom(studentsMax, studentsQuantity, lightsMax, lightsQuantity);
 
 	public static void main(String[] args) {
-		menu();
-		userSelection = commandSelection();
-		userInterger = commandInteger();
-		Reader.clrScreen();
-		System.out.println("Your command: " + userSelection);
-		System.out.println("Your quantity: " + userInterger);
-		quit();
-		return;
+		while (true) {
+			menu();
+			userSelection = commandSelection();
+			userInterger = commandInteger();
+			Reader.clrScreen();
+			System.out.println("Your command: " + userSelection);
+			System.out.println("Your quantity: " + userInterger);
+
+		}
 	}
 
 	private static void menu() {
@@ -74,7 +75,7 @@ class ClassController {
 				break;
 
 			default:
-				System.out.print("Invalid command. Please enter command: ");
+				System.out.print("Invalid command (" + userCommand + "). Please enter command: ");
 				userCommand = (Reader.getMyString()).toUpperCase();
 			}
 
@@ -82,13 +83,10 @@ class ClassController {
 		return userCommand;
 	}
 
-	private static void quit() {
-		Reader.clrScreen();
-		System.out.println("Goodbye.");
-		outputStackTrace();
-		System.exit(0);
-		return;
-
+	private static int commandInteger() {
+		System.out.print("Enter quantity: ");
+		int userQuantity = Reader.getMyInt();
+		return userQuantity;
 	}
 
 	/**
@@ -107,10 +105,13 @@ class ClassController {
 
 	}
 
-	private static int commandInteger() {
-		System.out.print("Enter quantity: ");
-		int userQuantity = Reader.getMyInt();
-		return userQuantity;
+	private static void quit() {
+		Reader.clrScreen();
+		System.out.println("Goodbye.");
+		outputStackTrace();
+		System.exit(0);
+		return;
+
 	}
 
 }
