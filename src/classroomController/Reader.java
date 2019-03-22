@@ -43,7 +43,7 @@ class Reader {
 	}
 
 	static public void clrScreen() {
-		for (int clr = 0; clr < 1000; clr++) {
+		for (int clr = 0; clr < 20; clr++) {
 			System.out.println("\b");
 		}
 	}
