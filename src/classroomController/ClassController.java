@@ -17,7 +17,6 @@ class ClassController {
 	static int lightsQuantity = 0;
 	
 	static String userSelection;
-	static int userInterger;
 	
 	/**
 	 * @param args
@@ -27,12 +26,9 @@ class ClassController {
 	public static void main(String[] args) {
 		while (true) {
 			menu();
-			userSelection = commandSelection();
-			userInterger = commandInteger();
+			commandSelection();
 			Reader.clrScreen();
-			System.out.println("Your command: " + userSelection);
-			System.out.println("Your quantity: " + userInterger);
-
+			
 		}
 	}
 
@@ -52,7 +48,7 @@ class ClassController {
 				+ "\n");
 	}
 
-	private static String commandSelection() {
+	private static void commandSelection() {
 		System.out.print("Enter command: ");
 		String userCommand = (Reader.getMyString()).toUpperCase();
 		
@@ -60,8 +56,13 @@ class ClassController {
 		while (!isValid) {
 			switch (userCommand) {
 			case "A":
+				isValid = true;
+				Classroom.addStudents(true);
+				break;
+
 			case "R":
 				isValid = true;
+				Classroom.addStudents(false);
 				break;
 
 			case "L":
@@ -80,13 +81,7 @@ class ClassController {
 			}
 
 		}
-		return userCommand;
-	}
 
-	private static int commandInteger() {
-		System.out.print("Enter quantity: ");
-		int userQuantity = Reader.getMyInt();
-		return userQuantity;
 	}
 
 	/**
