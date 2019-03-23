@@ -66,8 +66,13 @@ class ClassController {
 				break;
 
 			case "L":
+				isValid = true;
+				Classroom.onLights(true);
+				break;
+
 			case "O":
 				isValid = true;
+				Classroom.onLights(false);
 				break;
 
 			case "Q":
@@ -85,25 +90,25 @@ class ClassController {
 	}
 
 	/**
+	 * Used for debugging
 	 * from Printing A Stack Trace Anywhere In Java 
 	 * by Ben McCann
 	 * http://www.benmccann.com/printing-a-stack-trace-anywhere-in-java/
 	 */
-	private static void outputStackTrace() {
-		System.out.println("Printing stack trace:");
-		StackTraceElement[] elements = Thread.currentThread().getStackTrace();
-		for (int i = 1; i < elements.length; i++) {
-			StackTraceElement s = elements[i];
-			System.out.println("\tat " + s.getClassName() + "." + s.getMethodName() + "(" + s.getFileName() + ":"
-					+ s.getLineNumber() + ")");
-		}
-
-	}
-
+	/*
+	 * private static void outputStackTrace() {
+	 * System.out.println("Printing stack trace:"); StackTraceElement[] elements =
+	 * Thread.currentThread().getStackTrace(); for (int i = 1; i < elements.length;
+	 * i++) { StackTraceElement s = elements[i]; System.out.println("\tat " +
+	 * s.getClassName() + "." + s.getMethodName() + "(" + s.getFileName() + ":" +
+	 * s.getLineNumber() + ")"); }
+	 * 
+	 * }
+	 */
 	private static void quit() {
 		Reader.clrScreen();
 		System.out.println("Goodbye.");
-		outputStackTrace();
+		//outputStackTrace();
 		System.exit(0);
 		return;
 

@@ -13,8 +13,8 @@ class Classroom {
 	private static int studentsMax;
 	private static int studentQuantity;
 
-	private int lightsMax;
-	private int lightsQuantity;
+	private static int lightsMax;
+	private static int lightsQuantity;
 	
 	static int userInterger;
 
@@ -35,6 +35,17 @@ class Classroom {
 			setStudentsQuantity(studentQuantity + userQuantity);
 		} else {
 			setStudentsQuantity(studentQuantity - userQuantity);
+		}
+
+	}
+
+	public static void onLights(boolean isTrue) {
+		System.out.print("Enter quantity: ");
+		int userQuantity = Reader.getMyInt();
+		if (isTrue) {
+			setLightsQuantity(lightsQuantity + userQuantity);
+		} else {
+			setLightsQuantity(lightsQuantity - userQuantity);
 		}
 
 	}
@@ -69,13 +80,13 @@ class Classroom {
 	/**
 	 * @param lightQuantity the lightQuantity to set
 	 */
-	public void setLightsQuantity(int lightsQuantity) {
-		if (lightsQuantity < 0) {
-			this.lightsQuantity = 0;
-		} else if (lightsQuantity > lightsMax) {
-			this.lightsQuantity = lightsMax;
+	public static void setLightsQuantity(int quantity) {
+		if (quantity < 0) {
+			lightsQuantity = 0;
+		} else if (quantity > lightsMax) {
+			lightsQuantity = lightsMax;
 		} else {
-			this.lightsQuantity = lightsQuantity;
+			lightsQuantity = quantity;
 		}
 	}
 
