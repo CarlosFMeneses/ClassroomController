@@ -68,41 +68,37 @@ class ClassController {
 	private static void commandSelection() {
 		System.out.print("Enter command: ");
 		String userCommand = (Reader.getMyString()).toUpperCase();
-		
-		boolean isValid = false;
-		while (!isValid) {
+
+		boolean isValid = true;
+		do {
 			switch (userCommand) {
 			case "A":
-				isValid = true;
 				Classroom.addStudents(true);
 				break;
 
 			case "R":
-				isValid = true;
 				Classroom.addStudents(false);
 				break;
 
 			case "L":
-				isValid = true;
 				Classroom.onLights(true);
 				break;
 
 			case "O":
-				isValid = true;
 				Classroom.onLights(false);
 				break;
 
 			case "Q":
-				isValid = true;
 				quit();
 				break;
 
 			default:
+				isValid = false;
 				System.out.print("Invalid command (" + userCommand + "). Please enter command: ");
 				userCommand = (Reader.getMyString()).toUpperCase();
 			}
 
-		}
+		} while (!isValid);
 
 	}
 
