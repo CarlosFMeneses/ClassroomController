@@ -12,13 +12,11 @@ package classroomController;
 class ClassController {
 	
 	/** The students max. */
-	static int studentsMax = 10;
 	
 	/** The students quantity. */
 	static int studentsQuantity = 0;
 	
 	/** The lights max. */
-	static int lightsMax = 3;
 	
 	/** The lights quantity. */
 	static int lightsQuantity = 0;
@@ -27,7 +25,7 @@ class ClassController {
 	static String userSelection;
 	
 	/** The current classroom. */
-	static Classroom currentClassroom = new Classroom(studentsMax, studentsQuantity, lightsMax, lightsQuantity);
+	static Classroom currentClassroom = new Classroom(studentsQuantity, lightsQuantity);
 
 	/**
 	 * The main method.
@@ -50,9 +48,9 @@ class ClassController {
 		studentsQuantity = currentClassroom.getStudentsQuantity();
 		lightsQuantity = currentClassroom.getLightsQuantity();
 		
-		System.out.print("Students: " + studentsQuantity + "/" + studentsMax 
+		System.out.print("Students: " + studentsQuantity  
 				+ "\n"
-				+ "Lights: " + lightsQuantity + "/" + lightsMax
+				+ "Lights: " + lightsQuantity 
 				+ "\n\n"
 				+ "(A) Add students \n" 
 				+ "(R) Remove students \n" 
@@ -66,11 +64,15 @@ class ClassController {
 	 * Command selection.
 	 */
 	private static void commandSelection() {
-		System.out.print("Enter command: ");
-		String userCommand = (Reader.getMyString()).toUpperCase();
+		String userCommand;
+		boolean isValid;
 
-		boolean isValid = true;
+		System.out.print("Enter command: ");
+
 		do {
+			isValid = true;
+			userCommand = (Reader.getMyString()).toUpperCase();
+			
 			switch (userCommand) {
 			case "A":
 				Classroom.addStudents(true);
@@ -95,7 +97,6 @@ class ClassController {
 			default:
 				isValid = false;
 				System.out.print("Invalid command (" + userCommand + "). Please enter command: ");
-				userCommand = (Reader.getMyString()).toUpperCase();
 			}
 
 		} while (!isValid);

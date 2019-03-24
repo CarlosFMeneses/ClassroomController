@@ -12,13 +12,13 @@ package classroomController;
 class Classroom {
 	
 	/** The students max. */
-	private static int studentsMax;
+	private static int studentsMax = 10;
 	
 	/** The student quantity. */
 	private static int studentQuantity;
 
 	/** The lights max. */
-	private static int lightsMax;
+	private static int lightsMax = 3;
 	
 	/** The lights quantity. */
 	private static int lightsQuantity;
@@ -34,10 +34,8 @@ class Classroom {
 	 * @param lightsMaxInitiate the lights max initiate
 	 * @param lightInitiate the light initiate
 	 */
-	Classroom(int studentsMaxInitiate, int studentInitiate, int lightsMaxInitiate, int lightInitiate) {
-		studentsMax = studentsMaxInitiate;
+	Classroom(int studentInitiate, int lightInitiate) {
 		studentQuantity = studentInitiate;
-		lightsMax = lightsMaxInitiate;
 		lightsQuantity = lightInitiate;
 	}
 
@@ -47,11 +45,15 @@ class Classroom {
 	 * @param isTrue the is true
 	 */
 	public static void addStudents(boolean isTrue) {
-		System.out.print("Enter quantity: ");
-		int userQuantity = Reader.getMyInt();
+		System.out.print("Enter number of students ");
+		int userQuantity;
 		if (isTrue) {
+			System.out.print("to add: ");
+			userQuantity = Reader.getMyInt();
 			setStudentsQuantity(studentQuantity + userQuantity);
 		} else {
+			System.out.print("to remove: ");
+			userQuantity = Reader.getMyInt();
 			setStudentsQuantity(studentQuantity - userQuantity);
 		}
 
@@ -63,11 +65,15 @@ class Classroom {
 	 * @param isTrue the is true
 	 */
 	public static void onLights(boolean isTrue) {
-		System.out.print("Enter quantity: ");
-		int userQuantity = Reader.getMyInt();
+		System.out.print("Enter number of lights ");
+		int userQuantity;
 		if (isTrue) {
+			System.out.print("to turn on: ");
+			userQuantity = Reader.getMyInt();
 			setLightsQuantity(lightsQuantity + userQuantity);
 		} else {
+			System.out.print("to turn off: ");
+			userQuantity = Reader.getMyInt();
 			setLightsQuantity(lightsQuantity - userQuantity);
 		}
 
