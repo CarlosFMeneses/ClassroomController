@@ -1,29 +1,37 @@
 /**
- * 
+ * Reader.java
+ * @author carlosfmeneses
+ * Created on 3/11/2019
+ * Modified on 3/23/2019
  */
 package classroomController;
 
 import java.util.Scanner;
 
 /**
- * @author carlosfmeneses
- * ClassController.java 
- * created 3/11/2019 | updated 3/22/2019
+ * The Class Reader.
  */
-
 class Reader {
+	
+	/** The my scanner. */
 	static private Scanner myScanner = new Scanner(System.in);
+	
+	/** The my string. */
 	static private String myString;
+	
+	/** The my int. */
 	static private int myInt;
 
 	/**
-	 * @param args
+	 * Instantiates a new reader.
 	 */
 	Reader() {
 	}
 
 	/**
-	 * @return the myString
+	 * Gets the my string.
+	 *
+	 * @return the my string
 	 */
 	static public String getMyString() {
 		myString = myScanner.nextLine();
@@ -31,7 +39,9 @@ class Reader {
 	}
 
 	/**
-	 * @return the myInt
+	 * Gets the my int.
+	 *
+	 * @return the my int
 	 */
 	static public int getMyInt() {
 		while (!myScanner.hasNextInt()) {
@@ -42,6 +52,9 @@ class Reader {
 		return myInt;
 	}
 
+	/**
+	 * Clr screen.
+	 */
 	static public void clrScreen() {
 		for (int clr = 0; clr < 20; clr++) {
 			System.out.println("\b");

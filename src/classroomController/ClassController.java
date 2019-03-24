@@ -1,28 +1,39 @@
 /**
- * 
+ * ClassController.java
+ * @author carlosfmeneses
+ * Created on 3/8/2019
+ * Modified on 3/23/2019
  */
 package classroomController;
 
 /**
- * @author carlosfmeneses
- * ClassController.java 
- * created 3/8/2019 | updated 3/22/2019
+ * The Class ClassController.
  */
-
 class ClassController {
+	
+	/** The students max. */
 	static int studentsMax = 10;
+	
+	/** The students quantity. */
 	static int studentsQuantity = 0;
 	
+	/** The lights max. */
 	static int lightsMax = 3;
+	
+	/** The lights quantity. */
 	static int lightsQuantity = 0;
 	
+	/** The user selection. */
 	static String userSelection;
 	
-	/**
-	 * @param args
-	 */
+	/** The current classroom. */
 	static Classroom currentClassroom = new Classroom(studentsMax, studentsQuantity, lightsMax, lightsQuantity);
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		while (true) {
 			menu();
@@ -32,6 +43,9 @@ class ClassController {
 		}
 	}
 
+	/**
+	 * Menu.
+	 */
 	private static void menu() {
 		studentsQuantity = currentClassroom.getStudentsQuantity();
 		lightsQuantity = currentClassroom.getLightsQuantity();
@@ -48,6 +62,9 @@ class ClassController {
 				+ "\n");
 	}
 
+	/**
+	 * Command selection.
+	 */
 	private static void commandSelection() {
 		System.out.print("Enter command: ");
 		String userCommand = (Reader.getMyString()).toUpperCase();
@@ -89,11 +106,14 @@ class ClassController {
 
 	}
 
-	/**
+	/*
 	 * Used for debugging
 	 * from Printing A Stack Trace Anywhere In Java 
 	 * by Ben McCann
 	 * http://www.benmccann.com/printing-a-stack-trace-anywhere-in-java/
+	 */
+	/**
+	 * Quit.
 	 */
 	/*
 	 * private static void outputStackTrace() {
