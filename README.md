@@ -1,3 +1,5 @@
+[![codebeat badge](https://codebeat.co/badges/2c76e576-1805-479b-8b2a-8cfa373b0df8)](https://codebeat.co/projects/github-com-carlosfmeneses-classroomcontroller-master)
+[![Build Status](https://travis-ci.org/CarlosFMeneses/ClassroomController.svg?branch=master)](https://travis-ci.org/CarlosFMeneses/ClassroomController)
 # Classroom Controller
 Create a program that allows your user to control a classroom. Import both the Classroom class and an Reader class and use the two together to allow the user to make a selection from the following main menu and make it work:
 * If the user chooses A, the program will prompt the user for an integer and add that many students to the room. (Think about how to use loops for this.)
