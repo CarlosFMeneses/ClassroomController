@@ -11,3 +11,5 @@ Create a program that allows your user to control a classroom. Import both the C
 Other options should be provided to fit in with the other features of your classroom.
 
 _Suggested Java project from [dreamincode.net](https://www.dreamincode.net/forums/topic/160458-simple-java-projects/ "Simple Java Projects")_
+
+![https://wakatime.com/](https://wakatime.com/share/@CarlosFMeneses/96ec8a8a-df21-45f2-860f-0ecd016503c4.png "https://wakatime.com/")
