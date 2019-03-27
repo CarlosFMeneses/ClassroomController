@@ -53,7 +53,7 @@ buildScan {
     tag(System.getProperty("os.name"))
 	
 	// Set project source location
-	link("VCS", "https://github.com/CarlosFMeneses/ClassroomController/commits/${System.getProperty("vcs.branch")}")
+	link("GitHub", "https://github.com/CarlosFMeneses/ClassroomController/commits/${System.getProperty("vcs.branch")}")
 
 	// Enable capturing task input files
 	isCaptureTaskInputFiles = true
