@@ -6,8 +6,17 @@
  * User Manual available at https://docs.gradle.org/5.3/userguide/tutorial_java_projects.html
  */
 
+// used for Git commit ID capture
+import java.io.ByteArrayOutputStream
+
+// used for scan log
+import java.util.Date
+
 plugins {
-    // Apply the java plugin to add support for Java
+	// Applies the build scan plugin
+	id("com.gradle.build-scan") version "2.2.1"
+
+	    // Apply the java plugin to add support for Java
     java
 
     // Apply the application plugin to add support for building an application
@@ -31,4 +40,39 @@ dependencies {
 application {
     // Define the main class for the application
     mainClassName = "ClassroomController.App"
+}
+
+buildScan {
+	// Configures acceptance of the terms of service
+    setTermsOfServiceUrl("https://gradle.com/terms-of-service")  
+    setTermsOfServiceAgree("yes")
+	
+	// Capture and tag environment
+	// See https://docs.gradle.com/build-scan-plugin/#adding_tags
+    tag(if (System.getenv("CI").isNullOrEmpty()) "Local" else "CI")
+    tag(System.getProperty("os.name"))
+	
+	// Set project source location
+	link("VCS", "https://github.com/CarlosFMeneses/ClassroomController/commits/${System.getProperty("vcs.branch")}")
+
+	// Enable capturing task input files
+	isCaptureTaskInputFiles = true
+	
+	// Capture the Git commit ID
+  background {
+        val os = ByteArrayOutputStream()
+        exec {
+            commandLine("git", "rev-parse", "--verify", "HEAD")
+            standardOutput = os
+        }
+        value("Git Commit ID", os.toString())
+    }
+	
+	// Record the ID/URL of the build scan in a journal
+    buildScanPublished {
+        file("scan-journal.log").appendText("${Date()} - ${this.buildScanId} - ${this.buildScanUri}\n")
+    }
+	
+	// Publishes a build scan every time a build runs
+    publishOnFailure()                                              
 }
